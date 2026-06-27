@@ -10,8 +10,9 @@
 html{width:100%;min-height:100%;overflow-x:hidden;overflow-y:auto}
 body{width:100%;min-height:100%;overflow-x:hidden;overflow-y:auto;background:linear-gradient(135deg,#ff6b35 0%,#ff8c42 25%,#ffa500 50%,#ffb84d 75%,#ff9a56 100%);background-attachment:fixed;background-size:400% 400%;animation:romanticGlow 8s ease infinite;color:#fff;font-family:'Poppins',sans-serif;font-weight:500;width:100%}
 @keyframes romanticGlow{0%{background-position:0 50%;filter:brightness(1)}50%{background-position:100% 50%;filter:brightness(1.08)}100%{background-position:0 50%;filter:brightness(1)}}
-.page{position:relative;display:flex;justify-content:center;align-items:center;flex-direction:column;padding:25px;transition:.8s;width:100%;padding-top:40px;padding-bottom:40px;min-height:100dvh;height:auto}
-#letterPage{min-height:auto;height:auto}
+.page{position:relative;display:flex;justify-content:center;align-items:center;flex-direction:column;padding:25px;transition:.8s;width:100%;padding-top:40px;padding-bottom:40px;height:auto}
+#intro{min-height:100dvh}
+#viewer,#letterPage{height:auto}
 #letterPage .card{max-height:none;max-width:850px;overflow:visible}
 .hide{display:none !important;opacity:0;pointer-events:none}
 .gift{font-size:140px;cursor:pointer;animation:shake 1.6s infinite,float 3s ease-in-out infinite;text-shadow:0 0 25px rgba(255,107,53,.9),0 0 50px rgba(255,165,0,.7);filter:drop-shadow(0 0 20px rgba(255,107,53,.6))}
@@ -28,7 +29,7 @@ button:hover{box-shadow:0 10px 35px rgba(255,107,53,.9);transform:translateY(-4p
 button:active{transform:translateY(-1px)}
 #text{margin:25px auto;line-height:2.2;max-width:750px;min-height:140px;text-shadow:0 2px 4px rgba(0,0,0,.2);font-size:1.1em}
 .float{position:fixed;bottom:-30px;font-size:36px;animation:up 7s linear forwards;filter:drop-shadow(0 0 20px rgba(255,107,53,.8))}
-@keyframes up{to{transform:translateY(-120vh) rotate(360deg);opacity:0}}
+@keyframes up{to{transform:translateY(-150vh) rotate(360deg);opacity:0}}
 #letterPage .card h1{text-align:center}
 #typed{white-space:pre-wrap;line-height:2.4;text-shadow:0 2px 4px rgba(0,0,0,.2);font-size:1.08em;letter-spacing:.3px}
 @media (max-width:768px){
@@ -43,7 +44,8 @@ button{padding:12px 24px;font-size:.95em;margin:8px 5px;flex-shrink:0}
 #typed{font-size:0.95em;line-height:2.2}
 }
 @media (max-width:480px){
-.page{position:relative;height:auto;min-height:100dvh;display:flex;justify-content:flex-start;align-items:center;flex-direction:column;padding:15px 12px;padding-top:30px}
+.page{position:relative;height:auto;display:flex;justify-content:center;align-items:center;flex-direction:column;padding:15px 12px;padding-top:30px}
+#intro{min-height:100dvh}
 .page.hide{display:none}
 h1{font-size:1.4em;margin-bottom:8px}
 h2{font-size:1em;margin:6px 0;color:#fff}
