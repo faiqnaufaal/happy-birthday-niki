@@ -33,26 +33,27 @@ button:active{transform:translateY(-1px)}
 h1{font-size:2.2em;margin-bottom:15px}
 h2{font-size:1.5em;margin:10px 0}
 p{font-size:1em}
-.card{padding:30px;border-radius:25px}
+.card{padding:30px;border-radius:25px;display:flex;flex-direction:column}
 img{width:280px;height:370px;border:5px solid rgba(255,255,255,.95)}
-button{padding:12px 24px;font-size:.95em;margin:10px}
+button{padding:12px 24px;font-size:.95em;margin:8px 5px;flex-shrink:0}
 #text{font-size:0.95em;margin:15px auto;min-height:100px;line-height:2}
 .gift{font-size:100px}
 #typed{font-size:0.95em;line-height:2.2}
 }
 @media (max-width:480px){
-h1{font-size:1.8em;margin-bottom:12px}
+.page{padding:10px;height:auto;min-height:100vh}
+h1{font-size:1.8em;margin-bottom:10px}
 h2{font-size:1.2em;margin:8px 0}
 p{font-size:0.95em}
-.card{padding:20px;border-radius:20px;max-width:100%}
-.page{padding:15px}
-img{width:240px;height:320px;border:4px solid rgba(255,255,255,.95);border-radius:18px}
-button{padding:10px 20px;font-size:0.9em;margin:8px;border-radius:30px}
-#text{font-size:0.9em;margin:12px auto;min-height:80px;max-width:100%;line-height:1.9}
-.gift{font-size:80px;margin-bottom:10px}
-#letterPage .card{max-width:100%;max-height:80vh;padding:20px}
-#typed{font-size:0.9em;line-height:2.1;margin:10px 0}
+.card{padding:18px;border-radius:20px;max-width:100%;display:flex;flex-direction:column;gap:10px}
+img{width:220px;height:300px;border:4px solid rgba(255,255,255,.95);border-radius:18px;margin:10px auto}
+button{padding:11px 18px;font-size:0.88em;margin:6px 4px;border-radius:30px;flex-grow:1;min-width:70px}
+#text{font-size:0.9em;margin:10px auto;min-height:70px;max-width:100%;line-height:1.9}
+.gift{font-size:80px;margin-bottom:5px}
+#letterPage .card{max-width:100%;max-height:80vh;padding:18px;overflow-y:auto}
+#typed{font-size:0.9em;line-height:2.1;margin:5px 0}
 .float{font-size:28px}
+div:has(> button){display:flex;justify-content:center;flex-wrap:wrap;gap:5px;margin-top:10px}
 }
 </style>
 </head>
@@ -105,11 +106,11 @@ I hope this little website reminds you that you'll always have someone cheering 
 
 I love you, Niki, and I hope I always will. ❤️`;
 
-let i=0,t=0;
+let i=0,t=0,isTransitioning=false;
 function start(){intro.classList.add('hide');viewer.classList.remove('hide');music.play().catch(()=>{});render();setInterval(f,350);}
-function render(){photo.style.opacity='0';setTimeout(()=>{photo.src=memories[i].image;photo.style.opacity='1';},300);title.textContent=memories[i].title;text.textContent=memories[i].text;}
-function next(){if(i<memories.length-1){i++;render();}else{viewer.classList.add('hide');letterPage.classList.remove('hide');type();}}
-function prev(){if(i>0){i--;render();}}
+function render(){isTransitioning=true;photo.style.opacity='0';setTimeout(()=>{photo.src=memories[i].image;photo.style.opacity='1';isTransitioning=false;},300);title.textContent=memories[i].title;text.textContent=memories[i].text;}
+function next(){if(!isTransitioning){if(i<memories.length-1){i++;render();}else{isTransitioning=true;viewer.classList.add('hide');letterPage.classList.remove('hide');type();}}}
+function prev(){if(!isTransitioning&&i>0){i--;render();}}
 function type(){typed.textContent=letter;}
 function f(){let d=document.createElement('div');d.className='float';d.innerHTML=Math.random()>.5?'🧡':'✨';d.style.left=Math.random()*100+'vw';document.body.appendChild(d);setTimeout(()=>d.remove(),7000);}
 </script>
