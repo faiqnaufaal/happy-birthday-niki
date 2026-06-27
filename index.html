@@ -7,10 +7,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{overflow:auto;background:linear-gradient(135deg,#ff6b35 0%,#ff8c42 25%,#ffa500 50%,#ffb84d 75%,#ff9a56 100%);background-size:400% 400%;animation:romanticGlow 8s ease infinite;color:#fff;font-family:'Poppins',sans-serif;font-weight:500;min-height:100vh;width:100vw}
+html{height:100%;overflow-y:scroll}
+body{overflow-y:scroll;overflow-x:hidden;background:linear-gradient(135deg,#ff6b35 0%,#ff8c42 25%,#ffa500 50%,#ffb84d 75%,#ff9a56 100%);background-attachment:fixed;background-size:400% 400%;animation:romanticGlow 8s ease infinite;color:#fff;font-family:'Poppins',sans-serif;font-weight:500;min-height:100vh;width:100%}
 @keyframes romanticGlow{0%{background-position:0 50%;filter:brightness(1)}50%{background-position:100% 50%;filter:brightness(1.08)}100%{background-position:0 50%;filter:brightness(1)}}
 .page{position:relative;display:flex;justify-content:center;align-items:center;flex-direction:column;padding:25px;transition:.8s;min-height:100vh;width:100%;padding-top:40px;padding-bottom:40px}
-.hide{opacity:0;pointer-events:none}
+.hide{display:none !important;opacity:0;pointer-events:none}
 .gift{font-size:140px;cursor:pointer;animation:shake 1.6s infinite,float 3s ease-in-out infinite;text-shadow:0 0 25px rgba(255,107,53,.9),0 0 50px rgba(255,165,0,.7);filter:drop-shadow(0 0 20px rgba(255,107,53,.6))}
 @keyframes shake{25%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}75%{transform:rotate(-3deg)}}
 @keyframes float{0%,100%{transform:translateY(0px)}50%{transform:translateY(-20px)}}
