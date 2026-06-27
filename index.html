@@ -18,7 +18,7 @@ body{overflow:hidden;background:linear-gradient(135deg,#ff6b35 0%,#ff8c42 25%,#f
 h1{font-family:'Great Vibes',cursive;font-size:3.2em;margin-bottom:20px;letter-spacing:2px;text-shadow:0 0 25px rgba(255,107,53,.9),0 5px 10px rgba(0,0,0,.4);font-weight:400}
 h2{font-family:'Great Vibes',cursive;font-size:2.2em;margin:15px 0;text-shadow:0 0 20px rgba(255,107,53,.8),0 3px 8px rgba(0,0,0,.3);font-weight:400}
 p{font-size:1.15em;letter-spacing:.5px}
-img{width:340px;height:450px;object-fit:cover;border-radius:22px;border:7px solid rgba(255,255,255,.95);transition:.5s;box-shadow:0 0 50px rgba(255,107,53,.7),0 20px 50px rgba(255,99,71,.45)}
+img{width:340px;height:450px;object-fit:cover;border-radius:22px;border:7px solid rgba(255,255,255,.95);transition:.6s opacity,.3s transform;box-shadow:0 0 50px rgba(255,107,53,.7),0 20px 50px rgba(255,99,71,.45);opacity:1}
 img:hover{transform:scale(1.08);box-shadow:0 0 70px rgba(255,107,53,1),0 25px 60px rgba(255,99,71,.6)}
 button{margin:14px;padding:15px 32px;border:none;border-radius:40px;background:linear-gradient(135deg,#ff6b35,#ff8c42);color:#fff;font-weight:600;cursor:pointer;box-shadow:0 6px 25px rgba(255,107,53,.6);transition:.3s;border:1.5px solid rgba(255,255,255,.5);font-size:1.05em;font-family:'Poppins',sans-serif}
 button:hover{box-shadow:0 10px 35px rgba(255,107,53,.9);transform:translateY(-4px);background:linear-gradient(135deg,#ff8c42,#ffa500)}
@@ -82,10 +82,10 @@ I love you, Niki, and I hope I always will. ❤️`;
 
 let i=0,t=0;
 function start(){intro.classList.add('hide');viewer.classList.remove('hide');music.play().catch(()=>{});render();setInterval(f,350);}
-function render(){photo.src=memories[i].image;title.textContent=memories[i].title;text.textContent=memories[i].text;}
+function render(){photo.style.opacity='0';setTimeout(()=>{photo.src=memories[i].image;photo.style.opacity='1';},300);title.textContent=memories[i].title;text.textContent=memories[i].text;}
 function next(){if(i<memories.length-1){i++;render();}else{viewer.classList.add('hide');letterPage.classList.remove('hide');type();}}
 function prev(){if(i>0){i--;render();}}
-function type(){if(t<letter.length){typed.textContent+=letter[t++];setTimeout(type,28);}}
+function type(){typed.textContent=letter;}
 function f(){let d=document.createElement('div');d.className='float';d.innerHTML=Math.random()>.5?'🧡':'✨';d.style.left=Math.random()*100+'vw';document.body.appendChild(d);setTimeout(()=>d.remove(),7000);}
 </script>
 </body>
